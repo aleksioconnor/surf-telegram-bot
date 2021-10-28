@@ -130,3 +130,4 @@ bot.on('message', (msg) => {
     bot.sendMessage(chatId, 'Testing');
   });
 
+  module.exports = bot;
