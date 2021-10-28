@@ -24,14 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 	bot = new TelegramBot(token);
 	bot.setWebHook(process.env.HEROKU_URL + bot.token);
 	console.log('**** BOT initiated ***** ');
-	logger.info('Bot started', {
-		success: true,
-		successMessage: '**** BOT initiated *****',
-		failureMessage: '',
-		messageId: null,
-		isBot: null,
-		lang: null,
-	});
+
 } else {
 	// otherwise, we use polling
 	// differences between webhooks and polling:
