@@ -53,6 +53,7 @@ const callApi = () => {
     .then(function (response) {
         // handle success
         state.tideApi = response.data;
+        bot.sendMessage(chatId, "First API call made succesfully!");
         scheduleNotificationOnExtremes(response.data.extremes);
     })
     .catch(function (error) {
