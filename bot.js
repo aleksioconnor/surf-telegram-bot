@@ -6,9 +6,6 @@ const moment = require("moment");
 const schedule = require('node-schedule');
 const express = require('express');
 
-
-
-
 const chatId = 28083587;
 
 
@@ -92,7 +89,7 @@ const callApi = () => {
 console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
 
-callApi();
+// callApi();
 
 
 
@@ -102,19 +99,16 @@ cron.schedule('0 0 */12 * * *', () => {
 
 // Matches "/echo [whatever]"
 // So this is what a command looks like
-bot.onText(/\/echo (.+)/, (msg, match) => {
+bot.onText(/\/start (.+)/, (msg, match) => {
     // 'msg' is the received Message from Telegram
     // 'match' is the result of executing the regexp above on the text content
     // of the message
-    
-
-
   
     const chatId = msg.chat.id;
     const resp = match[1]; // the captured "whatever"
   
     // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, resp);
+    bot.sendMessage(chatId, "Howzit bru \xF0\x9F\x98\x8E");
   });
 
 
@@ -127,7 +121,7 @@ bot.on('message', (msg) => {
     console.log(chatId)
   
     // send a message to the chat acknowledging receipt of their message
-    bot.sendMessage(chatId, 'Testing');
+    // bot.sendMessage(chatId, 'Testing');
   });
 
   module.exports = bot;
