@@ -97,7 +97,7 @@ bot.onText(/\/start/, (msg) => {
 
   
     const chatId = msg.chat.id;
-    const resp = match[1]; // the captured "whatever"
+     // the captured "whatever"
   
     // send back the matched "whatever" to the chat
     const sunglasses = "\u{1F60E}";
