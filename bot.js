@@ -99,10 +99,11 @@ cron.schedule('0 0 */12 * * *', () => {
 
 // Matches "/echo [whatever]"
 // So this is what a command looks like
-bot.onText(/\/start (.+)/, (msg, match) => {
+bot.onText(/\/surf (.+)/, (msg, match) => {
     // 'msg' is the received Message from Telegram
     // 'match' is the result of executing the regexp above on the text content
     // of the message
+    console.log("/surf  works")
   
     const chatId = msg.chat.id;
     const resp = match[1]; // the captured "whatever"
