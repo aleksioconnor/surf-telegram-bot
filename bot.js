@@ -6,7 +6,6 @@ const moment = require("moment");
 const schedule = require('node-schedule');
 const express = require('express');
 
-const chatId = 28083587;
 
 
 const token = process.env.TG_TOKEN;
@@ -34,8 +33,6 @@ if (process.env.NODE_ENV === 'production') {
 
 const state = {
     tideApi: {},
-    extremes: [],
-    options: {}
 }
 
 const scheduleNotificationOnExtremes = (extremes) => {
@@ -93,23 +90,24 @@ console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
 
 
-cron.schedule('0 0 */12 * * *', () => {
-    bot.sendMessage(chatId, `This is the message that is sent every 12 hours.`);
-  });
 
 // Matches "/echo [whatever]"
 // So this is what a command looks like
-bot.onText(/\/surf (.+)/, (msg, match) => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
-    console.log("/surf  works")
+bot.onText(/\/start/, (msg) => {
+
   
     const chatId = msg.chat.id;
     const resp = match[1]; // the captured "whatever"
   
     // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, "Howzit bru \xF0\x9F\x98\x8E");
+    const sunglasses = "\u{1F60E}";
+    const sunglasses = "\u{1F60E}";
+
+    bot.sendMessage(chatId, `Howzit bru ${sunglasses}`);
+    bot.sendMessage(chatId, `For todays surf report, send /today`);
+    bot.sendMessage(chatId, `For tomorrows surf report, send /tomorrow`);
+    bot.sendMessage(chatId, `For the current tidetable, send /tide`);
+    bot.sendMessage(chatId, `Hang loose ${sunglasses}`);
   });
 
 
