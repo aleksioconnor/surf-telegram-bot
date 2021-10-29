@@ -60,7 +60,7 @@ const scheduleNotificationOnExtremes = (extremes) => {
     })
 }
 
-const callApi = () => {
+const checkTides = () => {
     bot.sendMessage(chatId, `Logging: An API call has been made`);
     axios.get('https://tides.p.rapidapi.com/tides?latitude=38.96258&longitude=-9.42078', {
         headers: {
@@ -101,6 +101,22 @@ bot.onText(/\/start/, (msg) => {
   
     // send back the matched "whatever" to the chat
     const sunglasses = "\u{1F60E}";
+
+    bot.sendMessage(chatId, `Howzit bru ${sunglasses}`);
+    bot.sendMessage(chatId, `For todays surf report, send /today`);
+    bot.sendMessage(chatId, `For tomorrows surf report, send /tomorrow`);
+    bot.sendMessage(chatId, `For the current tidetable, send /tide`);
+    bot.sendMessage(chatId, `Hang loose ${sunglasses}`);
+  });
+
+bot.onText(/\/tide/, (msg) => {
+
+    
+    const chatId = msg.chat.id;
+     // the captured "whatever"
+  
+    // send back the matched "whatever" to the chat
+    const sunglasses = "\u{1F60E}";
     const sunglasses = "\u{1F60E}";
 
     bot.sendMessage(chatId, `Howzit bru ${sunglasses}`);
@@ -112,15 +128,5 @@ bot.onText(/\/start/, (msg) => {
 
 
 
-// Listen for any kind of message. There are different kinds of
-// messages.
-// This is triggered by a message
-bot.on('message', (msg) => {
-    const chatId = msg.chat.id;
-    console.log(chatId)
-  
-    // send a message to the chat acknowledging receipt of their message
-    // bot.sendMessage(chatId, 'Testing');
-  });
 
   module.exports = bot;
