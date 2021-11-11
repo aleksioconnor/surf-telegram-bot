@@ -283,6 +283,7 @@ bot.onText(/\/tide/, (msg) => {
     console.log(moment().utc())
     checkTides(msg);
   });
+});
 
 
 
