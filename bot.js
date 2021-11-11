@@ -273,9 +273,13 @@ bot.onText(/\/start/, (msg) => {
     const sunglasses = "\u{1F60E}";
 
     bot.sendMessage(chatId, `Howzit bru ${sunglasses}`).then(() => {
-    bot.sendMessage(chatId, `For the current tides, send /tide`).then(() => {
+        bot.sendMessage(chatId, `${sunglasses}`).then(() => {
+            bot.sendMessage(chatId, ``).then(() => {
+                bot.sendMessage(chatId, `For the current tidetable, send /tide`).then(() => {
+                })
+            })
+        })
     })
-
   });
 
 bot.onText(/\/tide/, (msg) => {
@@ -283,7 +287,6 @@ bot.onText(/\/tide/, (msg) => {
     console.log(moment().utc())
     checkTides(msg);
   });
-});
 
 
 
